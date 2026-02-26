@@ -1,0 +1,204 @@
+/* App Layout */
+.app-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.app-title {
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #60a5fa, #3b82f6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.app-subtitle {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+/* Controls Section */
+.controls-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 1rem;
+    align-items: center;
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    margin-bottom: 3rem;
+}
+
+@media (max-width: 768px) {
+    .controls-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.control-label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Empty State */
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 2rem;
+    text-align: center;
+    border: 2px dashed var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--text-muted);
+}
+
+.empty-state svg {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 1.5rem;
+    color: var(--bg-accent);
+}
+
+.empty-state p {
+    font-size: 1.1rem;
+    max-width: 400px;
+    line-height: 1.6;
+}
+
+/* Main Dashboard Grid */
+.dashboard-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Section Styling */
+.section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.section-header h3 {
+    margin: 0;
+}
+
+/* Designations / Spots Grid */
+.spots-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.spot-card {
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.spot-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary);
+}
+
+.spot-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+}
+
+/* Seats Container */
+.seats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap: 0.75rem;
+}
+
+/* Individual Seat Styling */
+.seat {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    user-select: none;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.seat:active {
+    transform: scale(0.95);
+}
+
+/* Seat Statuses */
+.seat.available {
+    background-color: var(--bg-accent);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.seat.available:hover {
+    background-color: var(--success);
+    border-color: var(--success-hover);
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.seat.booked {
+    background-color: var(--danger);
+    color: white;
+}
+
+.seat.booked:hover {
+    background-color: var(--danger-hover);
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+.seat.temp-floater {
+    background-color: var(--warning);
+    color: #1e293b;
+}
+
+.seat.floater-available {
+    background-color: var(--primary);
+    color: white;
+}
+
+.seat.floater-available:hover {
+    background-color: var(--primary-hover);
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
